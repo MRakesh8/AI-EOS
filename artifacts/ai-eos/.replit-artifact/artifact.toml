@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AI-EOS Desktop Dashboard"
+description = "A premium dark-mode desktop engineering operating system dashboard built as a frontend prototype. Features a three-panel layout with left sidebar navigation, main content area (project/task tracking, build status, timeline, health metrics), right panel (AI status, GitHub, notifications, quick actions), and a bottom tabbed console. Screens include Dashboard, Projects, Tasks, Reports, Notifications, and Settings. Built with React, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui, and Lucide Icons."
+version = "1.0.0"
+id = "artifacts/ai-eos"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21754
+
+[services.development]
+run = "pnpm --filter @workspace/ai-eos run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-eos", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ai-eos/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21754"
+BASE_PATH = "/"

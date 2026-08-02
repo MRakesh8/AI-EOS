@@ -1,0 +1,300 @@
+# AI-EOS Desktop Dashboard (Phase 1)
+
+## Role
+
+You are a Senior Product Designer, Senior Frontend Engineer, and UI/UX Architect.
+
+Your task is **NOT** to build the complete AI-EOS system.
+
+Your task is only to build a beautiful, modern desktop dashboard (frontend prototype) that represents the future AI Engineering Operating System.
+
+Do not implement AI automation, browser automation, Antigravity integration, or backend logic.
+
+Focus only on creating an exceptional UI and frontend architecture.
+
+---
+
+# Goal
+
+Build a premium desktop dashboard that looks like software created by a top technology company.
+
+The interface should feel clean, modern, futuristic, professional, and easy to use.
+
+Think of products like:
+
+* Linear
+* GitHub Desktop
+* Raycast
+* Warp
+* Cursor
+* Notion
+* Vercel Dashboard
+
+Do **not** copy them. Create an original design inspired by high-end software.
+
+---
+
+# Technology
+
+Use:
+
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* shadcn/ui
+* Lucide Icons
+
+Use reusable components and clean folder structure.
+
+---
+
+# Dashboard Layout
+
+Create a three-panel layout.
+
+## Left Sidebar
+
+* Dashboard
+* Projects
+* Tasks
+* Reports
+* Notifications
+* Settings
+
+---
+
+## Main Area
+
+Display:
+
+Current Project
+
+Current Task
+
+Next Task
+
+Overall Progress
+
+Engineering Timeline
+
+Task Queue
+
+Recent Activities
+
+Build Status
+
+Testing Status
+
+Project Health
+
+---
+
+## Right Panel
+
+Display:
+
+AI Status
+
+Antigravity Status (UI only)
+
+GitHub Status (UI only)
+
+Notifications
+
+Quick Actions
+
+Project Summary
+
+---
+
+## Bottom Panel
+
+Tabbed interface
+
+* Console
+* Build Logs
+* Network
+* Server Logs
+
+Use realistic sample data.
+
+---
+
+# Dashboard Widgets
+
+Design modern cards for:
+
+Project Progress
+
+Current Sprint
+
+Active Tasks
+
+Completed Tasks
+
+Pending Tasks
+
+Performance Score
+
+Security Score
+
+Testing Progress
+
+Engineering Report
+
+Recent Notifications
+
+---
+
+# Project Screen
+
+Create a dedicated Project page.
+
+Display:
+
+Project Name
+
+Project Description
+
+Technology Stack
+
+Progress
+
+Timeline
+
+Current Milestone
+
+Remaining Tasks
+
+Estimated Completion Time
+
+---
+
+# Task Screen
+
+Design a professional task management interface.
+
+Each task card should show:
+
+* Task Name
+* Status
+* Priority
+* Progress
+* Assigned AI Module
+* Estimated Time
+
+---
+
+# Reports Screen
+
+Create beautiful report cards.
+
+Include:
+
+Engineering Report
+
+Testing Report
+
+Security Report
+
+Performance Report
+
+Deployment Report
+
+Use charts, progress indicators, and status badges.
+
+---
+
+# Settings Screen
+
+Design settings for:
+
+Theme
+
+Notifications
+
+GitHub Repository (UI only)
+
+Antigravity Settings (UI only)
+
+Project Preferences
+
+Automation Preferences (UI only)
+
+---
+
+# Visual Style
+
+Requirements:
+
+Premium
+
+Minimal
+
+Professional
+
+Rounded corners
+
+Smooth animations
+
+Excellent spacing
+
+Modern typography
+
+Glassmorphism only where appropriate
+
+Dark Mode as the default theme
+
+Responsive desktop layout
+
+---
+
+# Animations
+
+Use Framer Motion for:
+
+* Page transitions
+* Card hover effects
+* Sidebar animation
+* Loading states
+* Progress animations
+* Notification animations
+
+Keep animations smooth and subtle.
+
+---
+
+# Code Quality
+
+Use:
+
+* Reusable components
+* Clean architecture
+* Proper TypeScript types
+* Modular folders
+* Maintainable code
+
+---
+
+# Important
+
+Do NOT build backend.
+
+Do NOT build AI automation.
+
+Do NOT build Antigravity integration.
+
+Do NOT build browser automation.
+
+Do NOT build GitHub automation.
+
+Design the UI so these features can be connected later.
+
+---
+
+# Expected Output
+
+Build only the frontend UI prototype for Phase 1.
+
+The result should look like a professional engineering desktop application ready for future AI integration.
