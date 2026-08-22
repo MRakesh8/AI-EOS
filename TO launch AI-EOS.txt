@@ -1,0 +1,33 @@
+To open the AI-EOS USE Command
+
+1. Open your PowerShell or Command Prompt.
+
+2. First, switch to your D: drive by typing:
+
+bash
+
+
+D:
+
+
+(Press Enter)
+
+3. Next, navigate to the specific AI-EOS folder by typing:
+
+bash
+
+
+cd "D:\Project\AI Agent\artifacts\ai-eos"
+
+(Press Enter)
+
+4. Now that you are inside the correct folder, you can start the dashboard in development mode by running:
+
+bash
+
+pnpm dev    
+
+
+(Press Enter)
+
+This will automatically launch the real AI-EOS dashboard. 
