@@ -13,24 +13,52 @@ const mockConsoleLogs = [
   "[AGENT] Ready for instructions."
 ];
 
-export function BottomPanel() {
+function formatLogEntry(log: unknown): string {
+  if (typeof log === "string") return log;
+  if (log && typeof log === "object") {
+    if ("message" in log && typeof (log as any).message === "string") {
+      return (log as any).message;
+    }
+    if ("text" in log && typeof (log as any).text === "string") {
+      return (log as any).text;
+    }
+    try {
+      return JSON.stringify(log);
+    } catch {
+      return String(log);
+    }
+  }
+  return log != null ? String(log) : "";
+}
+
+interface BottomPanelProps {
+  customLogs?: unknown[];
+}
+
+export function BottomPanel({ customLogs }: BottomPanelProps = {}) {
   const [expanded, setExpanded] = useState(false);
-  const [logs, setLogs] = useState<string[]>([]);
-  const heightClass = expanded ? "h-[350px]" : "h-[180px]";
+  const [logs, setLogs] = useState<unknown[]>([]);
 
   useEffect(() => {
+    if (customLogs && customLogs.length > 0) {
+      setLogs(customLogs);
+      return;
+    }
     // Type out logs sequentially
     let i = 0;
     const interval = setInterval(() => {
       if (i < mockConsoleLogs.length) {
-        setLogs(prev => [...prev, mockConsoleLogs[i]]);
+        const nextLog = mockConsoleLogs[i];
+        if (nextLog !== undefined) {
+          setLogs(prev => [...prev, nextLog]);
+        }
         i++;
       } else {
         clearInterval(interval);
       }
     }, 800);
     return () => clearInterval(interval);
-  }, []);
+  }, [customLogs]);
 
   return (
     <motion.div 
@@ -69,14 +97,19 @@ export function BottomPanel() {
         <div className="flex-1 overflow-y-auto p-4 font-mono text-[11px] leading-relaxed text-muted-foreground">
           <TabsContent value="console" className="m-0 h-full">
             <div className="space-y-1">
-              {logs.map((log, i) => (
-                <div key={i} className="flex gap-3">
-                  <span className="text-primary/50 shrink-0">{new Date().toISOString().split('T')[1].slice(0,-1)}</span>
-                  <span className={log.includes("[AGENT]") ? "text-primary" : log.includes("[SERVER]") ? "text-chart-3" : ""}>
-                    {log}
-                  </span>
-                </div>
-              ))}
+              {logs.map((rawLog, i) => {
+                const logStr = formatLogEntry(rawLog);
+                const isAgent = logStr.includes("[AGENT]");
+                const isServer = logStr.includes("[SERVER]");
+                return (
+                  <div key={i} className="flex gap-3">
+                    <span className="text-primary/50 shrink-0">{new Date().toISOString().split('T')[1].slice(0,-1)}</span>
+                    <span className={isAgent ? "text-primary" : isServer ? "text-chart-3" : ""}>
+                      {logStr}
+                    </span>
+                  </div>
+                );
+              })}
               <div className="flex gap-3 items-center">
                 <span className="text-primary/50 shrink-0">{new Date().toISOString().split('T')[1].slice(0,-1)}</span>
                 <span className="flex items-center gap-1">

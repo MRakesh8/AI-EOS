@@ -504,6 +504,7 @@ STOP.
 ---------------- RAKESH PUSH ----------------
 
 git branch
+
 git status
 git add .
 git commit -m "Describe your changes"
@@ -513,6 +514,7 @@ git push
 ---------------- SURYA PUSH -----------------
 
 git branch
+
 git status
 git add .
 git commit -m "Describe your changes"
