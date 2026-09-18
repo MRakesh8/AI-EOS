@@ -1,0 +1,555 @@
+============================================================
+                 AI-EOS GIT / GITHUB WORKFLOW
+============================================================
+
+PROJECT:
+AI-EOS
+
+GITHUB:
+https://github.com/MRakesh8/AI-EOS.git
+
+
+============================================================
+1. BRANCH STRUCTURE
+============================================================
+
+Rakesh  → R1
+Surya   → S1
+Main    → main
+
+
+R1   = Rakesh's work
+S1   = Surya's work
+main = Stable / Approved code
+
+
+============================================================
+2. RAKESH - PUSH HIS WORK
+============================================================
+
+Rakesh works only on:
+
+R1
+
+
+STEP 1 - Check current branch
+
+git branch
+
+Expected:
+
+* R1
+
+
+IMPORTANT:
+If you see:
+
+* main
+
+STOP.
+Do not push.
+
+
+STEP 2 - Check changes
+
+git status
+
+
+STEP 3 - Add changes
+
+git add .
+
+
+STEP 4 - Commit changes
+
+git commit -m "Describe your changes"
+
+
+Example:
+
+git commit -m "Add dashboard feature"
+
+
+STEP 5 - Push to GitHub
+
+git push
+
+
+RESULT:
+
+Rakesh Laptop
+     ↓
+    R1
+     ↓
+  git push
+     ↓
+GitHub → R1
+
+
+============================================================
+3. SURYA - PUSH HIS WORK
+============================================================
+
+Surya works only on:
+
+S1
+
+
+STEP 1 - Check current branch
+
+git branch
+
+Expected:
+
+* S1
+
+
+IMPORTANT:
+If you see:
+
+* main
+
+STOP.
+Do not push.
+
+
+STEP 2 - Check changes
+
+git status
+
+
+STEP 3 - Add changes
+
+git add .
+
+
+STEP 4 - Commit changes
+
+git commit -m "Describe your changes"
+
+
+Example:
+
+git commit -m "Update login page"
+
+
+STEP 5 - Push to GitHub
+
+git push
+
+
+RESULT:
+
+Surya Laptop
+     ↓
+    S1
+     ↓
+  git push
+     ↓
+GitHub → S1
+
+
+============================================================
+4. RAKESH WORK → MAIN
+============================================================
+
+Rakesh:
+
+R1
+ ↓
+git push
+ ↓
+GitHub
+ ↓
+Pull Request
+ ↓
+Base    = main
+Compare = R1
+ ↓
+Review
+ ↓
+Test
+ ↓
+Merge
+ ↓
+main
+
+
+IMPORTANT:
+
+Do NOT normally push directly to main.
+
+
+============================================================
+5. SURYA WORK → MAIN
+============================================================
+
+Surya:
+
+S1
+ ↓
+git push
+ ↓
+GitHub
+ ↓
+Pull Request
+ ↓
+Base    = main
+Compare = S1
+ ↓
+Review
+ ↓
+Test
+ ↓
+Merge
+ ↓
+main
+
+
+IMPORTANT:
+
+Do NOT normally push directly to main.
+
+
+============================================================
+6. RAKESH - GET SURYA'S S1 UPDATE
+============================================================
+
+If Surya has pushed new changes to S1
+and Rakesh wants those changes on his laptop:
+
+STEP 1:
+
+git checkout S1
+
+
+STEP 2:
+
+git pull origin S1
+
+
+RESULT:
+
+GitHub → S1
+     ↓
+git pull origin S1
+     ↓
+Rakesh Laptop → S1
+
+
+IMPORTANT:
+
+This updates Rakesh's local S1 branch.
+
+
+If Rakesh wants to continue his own work,
+switch back to R1:
+
+git checkout R1
+
+
+============================================================
+7. SURYA - GET RAKESH'S R1 UPDATE
+============================================================
+
+If Rakesh has pushed new changes to R1
+and Surya wants those changes on his laptop:
+
+STEP 1:
+
+git checkout R1
+
+
+STEP 2:
+
+git pull origin R1
+
+
+RESULT:
+
+GitHub → R1
+     ↓
+git pull origin R1
+     ↓
+Surya Laptop → R1
+
+
+IMPORTANT:
+
+This updates Surya's local R1 branch.
+
+
+If Surya wants to continue his own work,
+switch back to S1:
+
+git checkout S1
+
+
+============================================================
+8. AFTER CHANGES ARE MERGED INTO MAIN
+============================================================
+
+When R1 and/or S1 changes are merged into main,
+both developers can get the latest approved project.
+
+------------------------------------------------------------
+RAKESH - GET LATEST MAIN
+------------------------------------------------------------
+
+git checkout main
+
+git pull origin main
+
+
+RESULT:
+
+GitHub → main
+     ↓
+git pull origin main
+     ↓
+Rakesh Laptop → latest main
+
+
+------------------------------------------------------------
+SURYA - GET LATEST MAIN
+------------------------------------------------------------
+
+git checkout main
+
+git pull origin main
+
+
+RESULT:
+
+GitHub → main
+     ↓
+git pull origin main
+     ↓
+Surya Laptop → latest main
+
+
+============================================================
+9. AFTER GETTING LATEST MAIN
+============================================================
+
+Rakesh should return to R1:
+
+git checkout R1
+
+
+Surya should return to S1:
+
+git checkout S1
+
+
+============================================================
+10. EASY PUSH RULE
+============================================================
+
+RAKESH:
+
+git branch
+        ↓
+Confirm: * R1
+        ↓
+git status
+        ↓
+git add .
+        ↓
+git commit -m "Describe your changes"
+        ↓
+git push
+
+
+SURYA:
+
+git branch
+        ↓
+Confirm: * S1
+        ↓
+git status
+        ↓
+git add .
+        ↓
+git commit -m "Describe your changes"
+        ↓
+git push
+
+
+============================================================
+11. EASY PULL RULE
+============================================================
+
+To get Rakesh's R1 update:
+
+git checkout R1
+git pull origin R1
+
+
+To get Surya's S1 update:
+
+git checkout S1
+git pull origin S1
+
+
+To get latest approved main:
+
+git checkout main
+git pull origin main
+
+
+============================================================
+12. IMPORTANT DIFFERENCE
+============================================================
+
+git push
+= Laptop → GitHub
+
+
+git pull
+= GitHub → Laptop
+
+
+Example:
+
+PUSH:
+
+Rakesh Laptop
+     ↓
+  git push
+     ↓
+GitHub R1
+
+
+PULL:
+
+GitHub R1
+     ↓
+git pull origin R1
+     ↓
+Surya Laptop
+
+
+============================================================
+13. COMPLETE TEAM WORKFLOW
+============================================================
+
+                 AI-EOS
+                   │
+          ┌────────┴────────┐
+          ↓                 ↓
+       Rakesh             Surya
+          │                 │
+         R1                S1
+          │                 │
+     git push          git push
+          │                 │
+          ↓                 ↓
+       GitHub             GitHub
+          │                 │
+          ↓                 ↓
+    Pull Request       Pull Request
+          │                 │
+          └────────┬────────┘
+                   ↓
+                 main
+                   │
+              Review/Test
+                   │
+                 Merge
+                   │
+                   ↓
+              Latest main
+              ↙        ↘
+          Rakesh       Surya
+          Laptop       Laptop
+             ↓            ↓
+       git pull       git pull
+       origin main   origin main
+
+
+============================================================
+14. GOLDEN RULE
+============================================================
+
+BEFORE PUSH:
+
+Rakesh:
+git branch
+
+Must show:
+
+* R1
+
+
+Surya:
+git branch
+
+Must show:
+
+* S1
+
+
+If it shows:
+
+* main
+
+STOP.
+
+
+============================================================
+15. QUICK COMMAND REFERENCE
+============================================================
+
+---------------- RAKESH PUSH ----------------
+
+git branch
+git status
+git add .
+git commit -m "Describe your changes"
+git push
+
+
+---------------- SURYA PUSH -----------------
+
+git branch
+git status
+git add .
+git commit -m "Describe your changes"
+git push
+
+
+---------------- RAKESH GET S1 ----------------
+
+git checkout S1
+git pull origin S1
+
+
+---------------- SURYA GET R1 -----------------
+
+git checkout R1
+git pull origin R1
+
+
+---------------- BOTH GET MAIN ----------------
+
+git checkout main
+git pull origin main
+
+
+============================================================
+FINAL RULE
+============================================================
+
+Rakesh  → Work on R1
+Surya   → Work on S1
+main    → Stable / Approved code
+
+R1 → Pull Request → main
+S1 → Pull Request → main
+
+git push = Upload changes to GitHub
+git pull = Download latest changes from GitHub
+
+Never normally push directly to main.
+============================================================
